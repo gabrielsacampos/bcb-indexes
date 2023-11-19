@@ -1,4 +1,4 @@
-import { BcbIndex } from './worker';
+import { BcbIndex } from './main';
 import axios from 'axios';
 import {InMemoryIGPMRepository} from "../inMemoryRepository/igpmRepository/inMemoryIgpmRepository"
 import {InMemoryIPCARepository} from "../inMemoryRepository/ipcaRepository/inMemoryIpcaRepository"
@@ -80,7 +80,7 @@ describe('', () => {
 
 	it('IPCA > rangeOfReadjustment return a range with readjustment from selected period following the ISO patter and props in english', async () => {
 		const spy = jest.spyOn(axios, 'get');
-		const responseMock = axiosIPCAMock.fetch(expectIGPMUrl)
+		const responseMock = axiosIPCAMock.fetch(expectIPCAUrl)
 		spy.mockResolvedValue({data: responseMock})
 
 		const rangeResult = await ipca.rangeOfReadjustment(expectIPCAUrl);
@@ -88,7 +88,7 @@ describe('', () => {
 	})
 
 	it('IPCA > accumulate on period', async () => {
-		const result = await igpm.calculate(valueToUpdate, "2022-01-01", "2022-12-31")
+		const result = await ipca.calculate(valueToUpdate, "2022-01-01", "2022-12-31")
 		const acceptedVariation = 0.05
 		const max = expectIPCAValueresult + acceptedVariation;
 		const min = expectIPCAValueresult - acceptedVariation;
