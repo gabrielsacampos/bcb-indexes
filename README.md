@@ -1,4 +1,4 @@
-# Simple lib to calculete value based on inflation indexes from BACEN - IBGE
+# Streamlined library for calculating values based on inflation indices from Brazil's Central Bank (BACEN) and the Brazilian Institute of Geography and Statistics (IBGE).
 
 ## [in construction]
 
